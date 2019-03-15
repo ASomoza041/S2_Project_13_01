@@ -5,7 +5,7 @@
    Tutorial 11
    Case Problem 1
 
-   Author: 
+   Author: Alex A. Somoza 
    Date:   
    
    Filename: bw_review.js
@@ -34,18 +34,31 @@
 
 */
 
+//run the init function when page is loaded
+window.onload = init();
+
+//Create a function to define event listeners used in the page.
+function init() {
+      var stars = document.querySelectorAll("span#stars");
+
+      for (var i = 0; i < stars.length; i++) {
+            stars[i].style.cursor = "pointer";
+            stars[i].addEventListener("mouseenter", lightStars);
+      }
+      document.getElementById("comment").addEventListener("keyup", updateCount);
+}
 
 
-  
 
 
-  
-  
-  
+
+
+
+
 /*=================================================================*/
 
 function countCharacters(textStr) {
-   var commentregx = /\s/g;
-   var chars = textStr.replace(commentregx, "");
-   return chars.length;
-}   
+      var commentregx = /\s/g;
+      var chars = textStr.replace(commentregx, "");
+      return chars.length;
+}
